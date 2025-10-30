@@ -8,10 +8,12 @@ import {
   completenessScorer,
   translationScorer,
 } from './scorers/weather-scorer';
+import { VercelDeployer } from '@mastra/deployer-vercel';
 
 export const mastra = new Mastra({
   workflows: { weatherWorkflow },
   agents: { weatherAgent },
+  deployer: new VercelDeployer(),
   scorers: {
     toolCallAppropriatenessScorer,
     completenessScorer,
